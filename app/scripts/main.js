@@ -17,5 +17,27 @@
     }
 
     this.page('repositories');
+
+    this.repos = [
+      { name: 'NAME OF REPO',
+        created_by: {
+          name: 'YOUR NAME HERE',
+          login: 'LOGIN'
+        }
+      },
+      { name: 'NAME OF REPO',
+        created_by: {
+          name: 'YOUR NAME HERE',
+          login: 'LOGIN'
+        }
+      },
+      { name: 'NAME OF REPO',
+        created_by: {
+          name: 'YOUR NAME HERE',
+          login: 'LOGIN'
+        }
+      }
+    ]
+
   }); // END controller(MainController)
 })(window);

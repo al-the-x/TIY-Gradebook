@@ -29,6 +29,18 @@ I. TIY Gradebook (<h1>)
             <a class="btn" href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">Github</a>
           </nav>
         </li>
+        <li class="list-group-item" ng-repeat="repo in app.repos">
+          <h3 class="list-group-title">{{repo.name}}</h3>
+
+          <author>{{repo.created_by.name}}
+            <a href="{{repo.created_by.html_url}}">@{{repo.created_by.login}}</a>
+          </author>
+          <nav class="btn-group">
+            <a class="btn" href="#" ng-click="app.page('milestones')">Assignments</a>
+            <a class="btn" href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?q=label%3AAttendance">Attendance</a>
+            <a class="btn" href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">Github</a>
+          </nav>
+        </li>
       </ul>
     </div><!--#Classes_List-->
   </div><!--.container-->
