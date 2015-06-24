@@ -19,7 +19,7 @@
     this.page('repositories');
 
 
-    $http.get('/api/github');
+    // $http.get('/api/github');
 
   });
 })(window);
