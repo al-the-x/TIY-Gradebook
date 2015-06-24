@@ -1,13 +1,16 @@
-<div id="Classes_List">
-  <ul class="list-group">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Morbi leo risus</li>
-    <li class="list-group-item">Porta ac consectetur ac</li>
-    <li class="list-group-item">Vestibulum at eros</li>
-  </ul>
-
-
-
-</div>
-<!--.container-->
+<div class="container">
+  <div id="Classes_List">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="repo in app.repo">
+        <h3>{{repo.name}}</h3>
+        <author>{{repo.created_by.name}}
+          <a href="https://github.com/al-the-x">@{{repo.created_bylogin}}</a>
+        </author>
+        <nav>
+          <a href="#" ng-click="app.page('milestones')">Assignments</a>
+          <a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?q=label%3A">Attendance</a>
+          <a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">Github</a>
+        </li>
+      </ul>
+          </div>
+        </div><!-- .container -->
