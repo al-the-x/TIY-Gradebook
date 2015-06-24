@@ -1,4 +1,15 @@
 {
+  "name": "TIY-Gradebook",
+  "version": "0.0.0",
+  "main": "gulpfile.babel.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Rogers <david@theironyard.com>",
+  "license": "GPL",
   "engines": {
     "node": ">=0.12.0"
   },
