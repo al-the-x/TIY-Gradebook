@@ -2,7 +2,7 @@
     //with query.load
     // $('main.container').load('views/repositories.html');
 
-    var app = angular.module('tiy-gradebook', []);
+    var app = angular.module('tiy-gradebook', [ ]);
 
 
     app.controller('MainController', function() {
@@ -17,6 +17,6 @@
           }
         }
           this.page('repositories');
-        
+
     });
 })(window);
