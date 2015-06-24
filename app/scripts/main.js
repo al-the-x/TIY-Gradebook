@@ -4,7 +4,7 @@
 
   var app = angular.module('tiy-gradebook', [ ]);
 
-  app.controller('MainController', function(){
+  app.controller('MainController', function($http){
     this.page = function(name){
       this.view = 'views/404.html';
 
@@ -39,5 +39,12 @@
       }
     ]
 
+    // $.getJSON('/api/github/orgs/TheIronYard--Orlando/repos.json');
+    $http.get('/api/github/orgs/TheIronYard--Orlando/repos.json')
+      .then(function(response){
+        console.log(response);
+      }, function(){
+        console.log('WHY IS THIS HAPPENING!?');
+      })
   }); // END controller(MainController)
 })(window);
