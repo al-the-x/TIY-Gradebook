@@ -1,27 +1,16 @@
 <h2>TIY Orlando Gradebook</h2>
 <h3>Available Classes</h3>
 <div class="list-group">
-  <a href="{{milestones.html}}" class="list-group-item">
-    <big><strong>{{repos.name}}</strong></big><br>
-    <small>Instructor: {{user?}}</small>
-  </a>
-  <li href="milestones.html" class="list-group-item">
-    <big><strong>2015--SUMMER--ROR</strong></big><br>
-    <small>
-      Instructor: Brian Gates
-      (<a href="https://github.com/bgates">@bgates</a>)
-    </small>
+  <li href="milestones.html" class="list-group-item" ng-repeat="repo in app.repos">
+    <big><strong>{{repo.name}}</strong></big><br>
+    <author>
+      Instructor: {{repo.created_by}}
+      <a href="{{repo.created_by_url}}">@al-the-x</a>
+    </author>
+    <nav>
+      <a href="#" ng-click="app.page('milestones')">Assignments</a>
+      <a href="{{repo.attendance}}">Attendance</a>
+      <a href="{{repo.github}}">Github</a>
+    </nav>
   </li>
-  <a href="milestones.html" class="list-group-item">
-    <big><strong>{{2015--SUMMER--FEE}}</strong></big><br>
-    <small>Instructor: {{user}}</small>
-  </a>
-  <a href="{{milestones.html}}" class="list-group-item">
-    <big><strong>{{ROR--2015--SPRING}}</strong></big><br>
-    <small>Instructor: {{user}}</small>
-  </a>
-  <a href="milestones.html" class="list-group-item">
-    <big><strong>{{iOS--2015--SPRING}}</strong></big><br>
-    <small>Instructor: {{user}}</small>
-  </a>
 </div>
