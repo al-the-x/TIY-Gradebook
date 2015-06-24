@@ -18,8 +18,15 @@
     }
     this.page('repositories');
 
-
-    $http.get('/api/github');
-
   });
+
+  app.controller('DataController', ['$http', function($http) {
+    var tiy = this;
+
+    tiy.repos = [];
+
+    $http.get('/api/github/repos/repos.json').success(function(data) {
+      tiy.repos = data;
+    });
+  }]);
 })(window);

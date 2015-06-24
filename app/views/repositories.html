@@ -1,7 +1,7 @@
-<div class="container">
-  <div id="Classes_List">
+<main class="container-fluid">
+  <div id="Classes_List" ng-controller="DataController as data">
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="repo in app.repo">
+      <li class="list-group-item" ng-repeat="repos in app.">
         <h3>{{repo.name}}</h3>
         <author>{{repo.created_by.name}}
           <a href="https://github.com/al-the-x">@{{repo.created_bylogin}}</a>
@@ -10,7 +10,9 @@
           <a href="#" ng-click="app.page('milestones')">Assignments</a>
           <a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?q=label%3A">Attendance</a>
           <a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">Github</a>
-        </li>
-      </ul>
-          </div>
-        </div><!-- .container -->
+        </nav>
+      </li>
+    </ul>
+  </div>
+</main>
+<!-- .container -->
