@@ -1,107 +1,53 @@
-<!doctype html>
-<html class="no-js" lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TIY Gradebook</title>
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="/styles/main.css">
-    <!-- endbuild -->
-
-    <!-- build:js scripts/vendor/modernizr.js -->
-    <script src="/bower_components/modernizr/modernizr.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body>
-    <div class="container-fluid">
-
-      <h2>TIY Orlando Gradebook</h2>
-      <h3>{{repos.name}}</h3>
-      <ul class="list-group">
-        <li class="list-group-item">
-          <big><strong>00 -- Brace Yourself</strong></big>
-          <div class="progress">
-            <span class="progress-bar progress-bar-verygood" style="width: 20%; background-color: green;">
-              20% (2)
-            </span>
-            <span class="progress-bar progress-bar-keeppracticing" style="width: 40%; background-color: orange;">
-              40% (4)
-            </span>
-            <span class="progress-bar progress-bar-notyet" style="width: 30%; background-color: red;">
-              30% (3)
-            </span>
-            <span class="progress-bar progress-bar-ungraded progress-bar-striped" style="width: 10%; background-color: lightgray;">
-              10% (1)
-            </span>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <big><strong>{{milestones.title}}</strong></big>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <big><strong>{{milestones.title}}</strong></big>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <big><strong>{{milestones.title}}</strong></big>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <big><strong>{{milestones.title}}</strong></big>
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </li>
-      </ul>
+<h2>TIY Orlando Gradebook</h2>
+<h3>{{repos.name}}</h3>
+<ul class="list-group">
+  <li class="list-group-item">
+    <big><strong>00 -- Brace Yourself</strong></big>
+    <div class="progress">
+      <span class="progress-bar progress-bar-verygood" style="width: 20%; background-color: green;">
+        20% (2)
+      </span>
+      <span class="progress-bar progress-bar-keeppracticing" style="width: 40%; background-color: orange;">
+        40% (4)
+      </span>
+      <span class="progress-bar progress-bar-notyet" style="width: 30%; background-color: red;">
+        30% (3)
+      </span>
+      <span class="progress-bar progress-bar-ungraded progress-bar-striped" style="width: 10%; background-color: lightgray;">
+        10% (1)
+      </span>
     </div>
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <script src="/bower_components/restangular/dist/restangular.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js scripts/main.js -->
-    <script src="/scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
-</html>
+  </li>
+  <li class="list-group-item">
+    <big><strong>{{milestones.title}}</strong></big>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        60%
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <big><strong>{{milestones.title}}</strong></big>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        60%
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <big><strong>{{milestones.title}}</strong></big>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        60%
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item">
+    <big><strong>{{milestones.title}}</strong></big>
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+        60%
+      </div>
+    </div>
+  </li>
+</ul>
