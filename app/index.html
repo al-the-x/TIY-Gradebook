@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="" ng-app="tiy-gradebook">
 
 <head>
   <meta charset="utf-8">
@@ -24,41 +24,17 @@
   <!-- endbuild -->
 </head>
 
-<body>
+<body ng-controller="MainController as app">
   <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+<nav>
+  <a href="#" ng-click="app.page('repositories')">Go To Repositiories</a>
+  <a href="#" ng-click="app.page('milestones')">Go To Milestones</a>
+</nav>
+  <main class="container" ng-include="app.view">
 
-  <div class="container" class="col-lg-24">
-    <div class="header">
-      <h2 class="text-muted">TIY Gradebook</h2>
-    </div>
-    <nav class="col-lg-24">
-      <h3><a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">2015--SUMMER--FEE</a></h3>
-      <ul class="list-group" ng-repeat="milestones">
-        <li class="list-group-item">
-          <h4><a href="#milestone">{{milestone}}</a></h4>
-          <div class="progress">
-            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" style="width: 30%">{{labels}}</div>
-            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" style="width: 30%; background-color: green">{{labels}}</div>
-            <div class="progress-bar" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color:red">{{labels}}</div>
-          </div>
-        </li>
-        <li class="list-group-item">
-          <h4><a href="#milestone">{{milestone}}</a></h4>
-          <ul class="list-group">
-            <li class="labels">{{labels}}</li>
-          </ul>
-        </li>
-        <li class="list-group-item">
-          <h4><a href="#milestone">{{milestone}}</a></h4>
-          <ul class="list-group">
-            <li class="labels">{{labels}}</li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-  </div>
+  </main>
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
