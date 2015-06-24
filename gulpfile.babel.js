@@ -1,4 +1,4 @@
-// generated on 2015-06-22 using generator-gulp-webapp 1.0.1
+// generated on 2015-06-23 using generator-gulp-webapp 1.0.1
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
@@ -99,15 +99,17 @@ gulp.task('serve', ['styles', 'fonts'], () => {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['.tmp', 'app'],
+      baseDir: ['app', '.tmp'],
       routes: {
         '/bower_components': 'bower_components'
       }
-    }
+    },
+    directory: true
   });
 
   gulp.watch([
     'app/*.html',
+    'app/views/*.html',
     'app/scripts/**/*.js',
     'app/images/**/*',
     '.tmp/fonts/**/*'
@@ -153,7 +155,7 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('app/**/*.html')
     .pipe(wiredep({
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
