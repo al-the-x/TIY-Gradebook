@@ -18,28 +18,28 @@
     }
     this.page('index.html');
 
-    app.controller('mileStone', ['$http', function($http) {
-        var mile = this;
+    // app.controller('mileStone', ['$http', function($http) {
+    //     var mile = this;
+    //
+    //       mile.repos = [ ]
 
-          mile.repos = [ ]
-
-    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
+    // $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
 
 
-    });
+    // });
   });
 
-  app.controller('DataController', ['$http', function($http) {
-    var self = this;
-
-    self.repos = [ ];
-
-    $http.get('/api/github/repos/repos.json')
-      .then(function(response){
-        self.repos = response.data;
-      }, function(){
-        console.log('why is this happening?');
-      })
-    });
-  }]);
+  // app.controller('DataController', ['$http', function($http) {
+  //   var self = this;
+  //
+  //   self.repos = [ ];
+  //
+  //   $http.get('/api/github/repos/repos.json')
+  //     .then(function(response){
+  //       self.repos = response.data;
+  //     }, function(){
+  //       console.log('why is this happening?');
+  //     })
+  //   });
+  // }]);
 })(window);
