@@ -36,10 +36,12 @@
 
     $http.get('/api/github/repos/repos.json')
       .then(function(response) {
-        self.repos = response.data;
+        self.repos = response.data.filter(function(year) {
+          return !(year.name.indexOf('2') === -1);
+        });
       }, function() {
-        console.log('why is this happening?');
-      })
+
+      });
   }); // End of ReposController
 
 
