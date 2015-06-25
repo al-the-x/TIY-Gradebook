@@ -27,7 +27,19 @@
 
 
     });
-
-
   });
+
+  app.controller('DataController', ['$http', function($http) {
+    var self = this;
+
+    self.repos = [ ];
+
+    $http.get('/api/github/repos/repos.json')
+      .then(function(response){
+        self.repos = response.data;
+      }, function(){
+        console.log('why is this happening?');
+      })
+    });
+  }]);
 })(window);
