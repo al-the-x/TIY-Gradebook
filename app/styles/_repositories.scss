@@ -4,5 +4,9 @@
 
 .repo-listing:hover {
   background-color: #EBEAE9;
-  cursor: pointer;
+}
+
+a strong {
+  text-decoration: underline;
+  color: black;
 }
