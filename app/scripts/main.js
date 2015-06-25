@@ -16,10 +16,18 @@
         this.view = 'views/milestones.html';
       }
     }
-    this.page('repositories');
+    this.page('index.html');
+
+    app.controller('mileStone', ['$http', function($http) {
+        var mile = this;
+
+          mile.repos = [ ]
+
+    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
 
 
-    $http.get('/api/github');
+    });
+
 
   });
 })(window);
