@@ -20,8 +20,9 @@
   </head>
   <body ng-controller="MainController as app">
     <nav style="padding-left: 1em;">
-      <a href="#" ng-click="app.page('repositories')">Go To Repositories</a>
-      <a href="#" ng-click="app.page('milestones')">Go to Milestones</a>
+      <a href="#" ng-click="app.page('repositories')" class="btn btn-default">Repositories</a>
+      <a href="#" ng-click="app.page('milestones')" class="btn btn-default">Milestones</a>
+      <img src="http://theironyard.com/images/iron-yard-logo.svg" class="tiy-logo">
     </nav>
     <main class="container-fluid" ng-include="app.view"></main>
 

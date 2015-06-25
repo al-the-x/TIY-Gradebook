@@ -6,7 +6,8 @@
     "modernizr": "~2.8.1",
     "angular": "~1.4.1",
     "restangular": "~1.5.1",
-    "bootstrap": "~3.3.5"
+    "bootstrap": "~3.3.5",
+    "lodash": "~3.9.3"
   },
   "devDependencies": {
     "chai": "~3.0.0",

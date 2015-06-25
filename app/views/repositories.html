@@ -1,16 +1,20 @@
 <h2>TIY Orlando Gradebook</h2>
 <h3>Available Classes</h3>
 <div class="list-group" ng-controller="DataController as data">
-  <li href="milestones.html" class="list-group-item" ng-repeat="repo in data.repos">
-    <big><strong>{{repo.name}}</strong></big><br>
+  <li class="list-group-item repo-listing" ng-repeat="repo in data.repos">
+    <big>
+      <a href="#" ng-click="app.page('milestones')">
+        <strong>{{repo.name}}</strong>
+      </a>
+    </big><br>
     <author>
       Instructor: {{repo.created_by}}
-      <a href="{{repo.created_by_url}}">@al-the-x</a>
+      <a href="{{repo.created_by_url}}">{{repo.userName}}</a>
     </author>
-    <nav>
-      <a href="#" ng-click="app.page('milestones')">Assignments</a>
-      <a href="{{repo.attendance}}">Attendance</a>
-      <a href="{{repo.html_url}}">Github</a>
+    <nav class="pull-right">
+      <a href="#" class="course-links" ng-click="app.page('milestones')">Assignments</a>
+      <a href="{{repo.attendance}}" class="course-links">{{attendance.issues}}</a>
+      <a href="{{repo.html_url}}" class="course-links">Github</a>
     </nav>
   </li>
 </div>

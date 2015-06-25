@@ -3,6 +3,15 @@ $icon-font-path: '../fonts/';
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
+@import "_repositories.scss";
+@import "_milestones.scss";
+
+.tiy-logo {
+  float: right;
+  margin-right: 3.5em;
+  height: 135px;
+  width: auto;
+}
 
 .browserupgrade {
   margin: 0.2em 0;
