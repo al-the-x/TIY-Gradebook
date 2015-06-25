@@ -28,9 +28,13 @@
     });
   });
 
-  app.controller('MilestoneController', function($http){
+  app.controller('CohortController', function($http){
     var self = this;
-    self.repoMilestones = [ ];
+    self.assignments = [ ];
+
+    $http.get(apiUrl('milestones.json'))
+      .then(function(response){
+        self.assignments = response.data;
 
     $http.get('/api/github/milestones.json')
       .then(function(classMilestones){
