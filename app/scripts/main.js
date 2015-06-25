@@ -21,12 +21,16 @@
   });
 
   app.controller('DataController', ['$http', function($http) {
-    var tiy = this;
+    var self = this;
 
-    tiy.repos = [];
+    self.repos = [ ];
 
-    $http.get('/api/github/repos/repos.json').success(function(data) {
-      tiy.repos = data;
+    $http.get('/api/github/repos/repos.json')
+      .then(function(response){
+        self.repos = response.data;
+      }, function(){
+        console.log('why is this happening?');
+      })
     });
   }]);
 })(window);
