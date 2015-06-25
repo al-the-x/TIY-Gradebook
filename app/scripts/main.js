@@ -18,31 +18,19 @@
 
     this.page('repositories');
 
-    this.repos = [
-      { name: 'NAME OF REPO',
-        created_by: {
-          name: 'YOUR NAME HERE',
-          login: 'LOGIN'
-        }
-      },
-      { name: 'NAME OF REPO',
-        created_by: {
-          name: 'YOUR NAME HERE',
-          login: 'LOGIN'
-        }
-      },
-      { name: 'NAME OF REPO',
-        created_by: {
-          name: 'YOUR NAME HERE',
-          login: 'LOGIN'
-        }
-      }
-    ]
+    this.repos = [ ];
+
+    var self = this, // Keep a reference to `this` for later...
+        that = this, // PLEASE DON'T DO THIS... I MEAN THAT... YOU KNOW!
+        app = this; // Just a convenience...
 
     // $.getJSON('/api/github/orgs/TheIronYard--Orlando/repos.json');
     $http.get('/api/github/orgs/TheIronYard--Orlando/repos.json')
       .then(function(response){
-        console.log(response);
+        self.repos = response.data;
+        // self.repos = _.filter(response.data, function(repo){
+        //   return !( repo.name.indexOf('FEE') === -1 );
+        // });
       }, function(){
         console.log('WHY IS THIS HAPPENING!?');
       })
