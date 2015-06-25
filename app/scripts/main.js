@@ -15,52 +15,28 @@
         this.view = 'views/repositories.html';
       }
     };
-
-    // this.repos = [
-    //     {name: '2015--SUMMER--FEE',
-    //     created_by: 'David Rogers',
-    //     created_by_url:'https://github.com/al-the-x',
-    //     created_by_github_user: 'al-the-x',
-    //     attendance: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?utf8=%E2%9C%93&q=is%3Aall+label%3AAttendance+',
-    //     github: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE'},
-    //     {name: '2015--SUMMER--FEE',
-    //     created_by: 'David Rogers',
-    //     created_by_url:'https://github.com/al-the-x',
-    //     created_by_github_user: 'al-the-x',
-    //     attendance: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?utf8=%E2%9C%93&q=is%3Aall+label%3AAttendance+',
-    //     github: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE'},
-    //     {name: '2015--SUMMER--FEE',
-    //     created_by: 'David Rogers',
-    //     created_by_url:'https://github.com/al-the-x',
-    //     created_by_github_user: 'al-the-x',
-    //     attendance: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?utf8=%E2%9C%93&q=is%3Aall+label%3AAttendance+',
-    //     github: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE'},
-    //     {name: '2015--SUMMER--FEE',
-    //     created_by: 'David Rogers',
-    //     created_by_url:'https://github.com/al-the-x',
-    //     created_by_github_user: 'al-the-x',
-    //     attendance: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?utf8=%E2%9C%93&q=is%3Aall+label%3AAttendance+',
-    //     github: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE'},
-    //     {name: '2015--SUMMER--FEE',
-    //     created_by: 'David Rogers',
-    //     created_by_url:'https://github.com/al-the-x',
-    //     created_by_github_user: 'al-the-x',
-    //     attendance: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE/issues?utf8=%E2%9C%93&q=is%3Aall+label%3AAttendance+',
-    //     github: 'https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE'}
-    //   ];
-
   }); // END controller(MainController)
 
-  app.controller('DataController', function($http){
+  app.controller('RepositoryController', function($http){
     var self = this;
-    self.repos = [ ];
+    self.classRepos = [ ];
 
     $http.get('/api/github/repos.json')
-      .then(function(response){
-        console.log(response);
-        self.repos = response.data;
+      .then(function(tiyRepos){
+        console.log(tiyRepos);
+        self.classRepos = tiyRepos.data;
     });
+  });
 
+  app.controller('MilestoneController', function($http){
+    var self = this;
+    self.repoMilestones = [ ];
+
+    $http.get('/api/github/milestones.json')
+      .then(function(classMilestones){
+        console.log(classMilestones);
+        self.repoMilestones = classMilestones.data;
+      });
   });
 
 })(window);
