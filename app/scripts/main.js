@@ -16,7 +16,7 @@
         this.view = 'views/milestones.html';
       }
     }
-    this.page('index.html');
+    this.page('views/repositories.html');
 
     // app.controller('mileStone', ['$http', function($http) {
     //     var mile = this;
