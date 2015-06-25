@@ -23,7 +23,10 @@
 
           mile.repos = [ ]
 
-    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success
+    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
+
+
+    });
 
 
   });
