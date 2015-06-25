@@ -1,8 +1,11 @@
 <h2>TIY Orlando Gradebook</h2>
 <h3>2015--SUMMER--FEE</h3>
-<ul class="list-group" ng-controller="MilestoneController as milestone">
-  <li class="list-group-item" ng-repeat="mileName in milestone.repoMilestones">
-    <big><a href="{{ mileName.html_url }}"><strong>{{ mileName.title }}</strong></a></big>
+<ul class="list-group" ng-controller="CohortController as cohort">
+  <li class="list-group-item" ng-repeat="assignment in cohort.assignments">
+    <big><a href="{{ assignment.html_url }}">
+      <strong>{{ assignment.title }}</strong></a>
+      ({{assignment.issues.length}})
+    </big>
     <div class="progress">
       <span class="progress-bar progress-bar-verygood" style="width: 20%; background-color: green;">
         20% (2)
