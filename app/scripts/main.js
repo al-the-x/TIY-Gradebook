@@ -18,8 +18,13 @@
     }
     this.page('index.html');
 
+    app.controller('mileStone', ['$http', function($http) {
+        var mile = this;
 
-    $http.get('/api/github');
+          mile.repos = [ ]
+
+    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success
+
 
   });
 })(window);
