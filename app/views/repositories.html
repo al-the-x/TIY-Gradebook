@@ -1,8 +1,8 @@
 <main class="container-fluid">
-  <div id="Classes_List" ng-controller="DataController as data">
-    <ul class="list-group">
-      <li class="list-group-item" ng-repeat="repo in data.repos">
-        <h3>{{repo.name}}</h3>
+  <div id="Classes_List">
+    <ul class="list-group" ng-controller="ReposController as repo">
+      <li class="list-group-item" ng-repeat="classRepos in repo.repos ">
+        <h3>{{classRepos.name}}</h3>
         <author>{{repo.creator}}
           <a href="https://github.com/al-the-x">@{{repo.created_by.name}}</a>
         </author>

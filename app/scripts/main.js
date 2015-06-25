@@ -16,30 +16,35 @@
         this.view = 'views/milestones.html';
       }
     }
-    this.page('index.html');
+    this.page('views/repositories.html');
+    // app.controller('mileStone', ['$http', function($http) {
+    //     var mile = this;
+    //
+    //       mile.repos = [ ]
+    // $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
+    // });
+    //  });
+  }); // End of Main controller
 
-    app.controller('mileStone', ['$http', function($http) {
-        var mile = this;
-
-          mile.repos = [ ]
-
-    $http.get('/api/github.repos/TIY/summerFee/milestones.json').success(function(){
 
 
-    });
-  });
 
-  app.controller('DataController', ['$http', function($http) {
+  app.controller('ReposController', function($http) {
     var self = this;
 
-    self.repos = [ ];
+    self.repos = [];
 
     $http.get('/api/github/repos/repos.json')
-      .then(function(response){
-        self.repos = response.data;
-      }, function(){
-        console.log('why is this happening?');
-      })
-    });
-  }]);
+      .then(function(response) {
+        self.repos = response.data.filter(function(year) {
+          return !(year.name.indexOf('2') === -1);
+        });
+      }, function() {
+
+      });
+  }); // End of ReposController
+
+
+
+
 })(window);
