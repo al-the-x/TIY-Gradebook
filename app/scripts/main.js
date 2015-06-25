@@ -16,7 +16,7 @@
         this.view = 'views/milestones.html';
       }
     }
-    this.page('repositories');
+    this.page('index.html');
 
 
     $http.get('/api/github');
