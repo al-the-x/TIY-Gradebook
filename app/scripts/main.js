@@ -19,6 +19,7 @@
       this.page('repositories');
     }); // End of Main controller
 
+
     app.controller('ReposController', function($http) {
       var self = this;
 
@@ -34,6 +35,19 @@
         });
     }); // End of ReposController
 
+  app.controller('MainController', function($http) {
+    this.page = function(name) {
+
+      this.view = 'views/404.html';
+      if ( name == 'repositories') {
+        this.view = 'views/repositories.html';
+      }
+      if ( name == 'milestones') {
+        this.view = 'views/milestones.html';
+      }
+    }
+    this.page('repositories');
+  });
 
     app.controller('MilestonesController', function($http) {
         var mile = this;
