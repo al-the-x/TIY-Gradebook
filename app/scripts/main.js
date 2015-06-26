@@ -2,21 +2,22 @@
   //with query.load
   // $('main.container').load('views/repositories.html');
 
-  var app = angular.module('tiy-gradebook', []);
+  var app = angular.module('tiy-gradebook', [ ]);
 
 
-  app.controller('MainController', function() {
-    this.view = null;
+  app.controller('MainController', function($http) {
     this.page = function(name) {
+
       this.view = 'views/404.html';
-      if (name == 'repositories') {
+      if ( name == 'repositories') {
         this.view = 'views/repositories.html';
       }
-      if (name == 'milestones') {
+      if ( name == 'milestones') {
         this.view = 'views/milestones.html';
       }
     }
-    this.page('index.html');
+    this.page('repositories');
+  });
 
     app.controller('mileStone', ['$http', function($http) {
         var mile = this;
