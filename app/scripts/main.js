@@ -41,7 +41,6 @@
         mile.milestones = []
         $http.get('/api/github/repos/TIY/summerFee/milestones.json')
           .then(function(response) {
-            console.log(response);
             mile.milestones = response.data;
           })
       }); // End of MilestonesController
