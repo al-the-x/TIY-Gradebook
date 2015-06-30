@@ -1,13 +1,7 @@
-<div class="container-fluid" ng-controller="MilestonesController as mile">
-  <div class="header">
-    <h2 class="text-muted"><a href="#" ng-click="app.page('repositories')">TIY Gradebook</a></h2>
-  </div>
-
-  <!-- end of header -->
+<div class="container-fluid">
   <nav>
-    <h3><a href="https://github.com/TheIronYard--Orlando/2015--SUMMER--FEE">{{repo.name}}</a></h3>
     <ul class="list-group">
-      <li class="list-group-item" ng-repeat="assignment in mile.milestones">
+      <li class="list-group-item" ng-repeat="assignment in cohort.assignments">
         <h4><a href="{{assignment.html_url}}">{{assignment.title}}</a></h4>
         <div class="progress">
           <div class="progress-bar" style="width: 30%">{{labels}}</div>

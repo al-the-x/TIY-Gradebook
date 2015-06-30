@@ -40,30 +40,29 @@
     app.controller('CampusController', function($http) {
       var self = this;
 
-      self.repos = [];
+      self.cohorts = [];
 
       $http.get('/api/github/repos/repos.json')
         .then(function(response) {
-          self.repos = response.data.filter(function(year) {
-            return !(year.name.indexOf('2') === -1);
+          self.cohorts = response.data.filter(function(year) {
+            return year.name.match(/(FEE|iOS|ROR)/);
           });
-        }, function() {
-
         });
     }); // End of ReposController
 
     app.controller('CohortController', function($http, $routeParams) {
-        var mile = this;
+      var self = this;
 
-        mile.milestones = []
-        $http.get('/api/github/repos/TIY/summerFee/milestones.json')
-          .then(function(response) {
-            mile.milestones = response.data;
-          })
-      }); // End of MilestonesController
+      self.assignments = []
 
-
-
-
-
-    })(window);
+      //$http.get('/api/github/repos/TIY/summerFee/milestones.json')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/FEE--2014--FALL/milestones?state=all')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/FEE--2015--SPRING/milestones?state=all')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/2015--SUMMER--FEE/milestones?state=all')
+      // By our powers combined... REFACTOR!
+      $http.get('https://api.github.com/repos/TheIronYard--Orlando/'+ $routeParams.cohort + '/milestones?state=all')
+        .then(function(response) {
+          self.assignments = response.data;
+        })
+    }); // End of MilestonesController
+})(window);
