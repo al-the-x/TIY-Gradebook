@@ -4,23 +4,40 @@
 
     var app = angular.module('tiy-gradebook', [ 'ngRoute' ]);
 
+    app.config(function($routeProvider){
+      console.log($routeProvider);
+
+      $routeProvider.when('/cohorts/:cohort', {
+        templateUrl: 'views/milestones.html',
+        controller: 'CohortController',
+        controllerAs: 'cohort'
+      });
+
+      $routeProvider.when('/cohorts/2015--SUMMER--FEE', {
+        templateUrl: 'views/milestones.html',
+        controller: 'CohortController',
+        controllerAs: 'cohort'
+      });
+
+      $routeProvider.when('/cohorts', {
+        templateUrl: 'views/repositories.html',
+        controller: 'CampusController',
+        controllerAs: 'campus'
+      });
+
+      $routeProvider.when('/404', {
+        templateUrl: 'views/404.html'
+      })
+
+      $routeProvider.otherwise('/404');
+    });
 
     app.controller('MainController', function() {
-      this.view = null;
-      this.page = function(name) {
-        this.view = 'views/404.html';
-        if (name == 'repositories') {
-          this.view = 'views/repositories.html';
-        }
-        if (name == 'milestones') {
-          this.view = 'views/milestones.html';
-        }
-      }
-      this.page('repositories');
+
     }); // End of Main controller
 
 
-    app.controller('ReposController', function($http) {
+    app.controller('CampusController', function($http) {
       var self = this;
 
       self.repos = [];
@@ -35,21 +52,7 @@
         });
     }); // End of ReposController
 
-  app.controller('MainController', function($http) {
-    this.page = function(name) {
-
-      this.view = 'views/404.html';
-      if ( name == 'repositories') {
-        this.view = 'views/repositories.html';
-      }
-      if ( name == 'milestones') {
-        this.view = 'views/milestones.html';
-      }
-    }
-    this.page('repositories');
-  });
-
-    app.controller('MilestonesController', function($http) {
+    app.controller('CohortController', function($http, $routeParams) {
         var mile = this;
 
         mile.milestones = []
