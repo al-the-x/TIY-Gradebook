@@ -29,11 +29,11 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
   <nav>
-    <a href="#" ng-click="app.page('repositories')">Go To Repositiories</a>
-    <a href="#" ng-click="app.page('milestones')">Go To Milestones</a>
+    <a href="#/repositories">Go To Repositiories</a>
+    <a href="#/milestones">Go To Milestones</a>
   </nav>
 
-  <main class="container-fluid" ng-include="app.view">
+  <main class="container-fluid" ng-view>
 
   </main>
   <!-- build:js scripts/vendor.js -->
@@ -42,6 +42,7 @@
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/lodash/lodash.js"></script>
   <script src="/bower_components/restangular/dist/restangular.js"></script>
+  <script src="/bower_components/angular-route/angular-route.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:js scripts/plugins.js -->

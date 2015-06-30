@@ -2,65 +2,98 @@
     //with query.load
     // $('main.container').load('views/repositories.html');
 
-    var app = angular.module('tiy-gradebook', []);
+    var app = angular.module('tiy-gradebook', [ 'ngRoute', 'restangular' ]);
 
+    /**
+     * Route definitions with ngRoute.$routeProvider
+     */
+    app.config(function($routeProvider){
+      // console.log($routeProvider);
+
+      $routeProvider.when('/cohorts/:cohort', {
+        templateUrl: 'views/milestones.html',
+        controller: 'CohortController',
+        controllerAs: 'cohort'
+      });
+
+      $routeProvider.when('/cohorts/2015--SUMMER--FEE', {
+        templateUrl: 'views/milestones.html',
+        controller: 'CohortController',
+        controllerAs: 'cohort'
+      });
+
+      $routeProvider.when('/cohorts', {
+        templateUrl: 'views/repositories.html',
+        controller: 'CampusController',
+        controllerAs: 'campus'
+      });
+
+      $routeProvider.when('/404', {
+        templateUrl: 'views/404.html'
+      })
+
+      $routeProvider.otherwise('/404');
+    });
+
+    /**
+     * Separate config function for each Provider!
+     */
+    app.config(function(RestangularProvider){
+      RestangularProvider.setBaseUrl('https://api.github.com');
+      // RestangularProvider.setBaseUrl('https://burning-inferno-3685.firebaseapp.io');
+    });
 
     app.controller('MainController', function() {
-      this.view = null;
-      this.page = function(name) {
-        this.view = 'views/404.html';
-        if (name == 'repositories') {
-          this.view = 'views/repositories.html';
-        }
-        if (name == 'milestones') {
-          this.view = 'views/milestones.html';
-        }
-      }
-      this.page('repositories');
+
     }); // End of Main controller
 
 
-    app.controller('ReposController', function($http) {
+    app.controller('CampusController', function(Restangular) {
       var self = this;
 
-      self.repos = [];
+      self.cohorts = [];
 
-      $http.get('/api/github/repos/repos.json')
-        .then(function(response) {
-          self.repos = response.data.filter(function(year) {
-            return !(year.name.indexOf('2') === -1);
-          });
-        }, function() {
+      // $http.get('/api/github/repos/repos.json')
+      //   .then(function(response) {
+      //     self.cohorts = response.data.filter(function(year) {
+      //       return year.name.match(/(FEE|iOS|ROR)/);
+      //     });
+      //   });
 
-        });
+      Restangular
+        .one('orgs', 'TheIronYard--Orlando').getList('repos')
+        .then(function(data){
+          debugger;
+          var pattern = /(FEE|iOS|ROR)/;
+
+          self.cohorts = _.filter(data, function(repo){
+            // debugger;
+            return repo.name.match(pattern)
+          })
+        })
     }); // End of ReposController
 
-  app.controller('MainController', function($http) {
-    this.page = function(name) {
+    app.controller('CohortController', function(Restangular, $routeParams) {
+      var self = this;
 
-      this.view = 'views/404.html';
-      if ( name == 'repositories') {
-        this.view = 'views/repositories.html';
-      }
-      if ( name == 'milestones') {
-        this.view = 'views/milestones.html';
-      }
-    }
-    this.page('repositories');
-  });
+      self.assignments = []
 
-    app.controller('MilestonesController', function($http) {
-        var mile = this;
+      //$http.get('/api/github/repos/TIY/summerFee/milestones.json')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/FEE--2014--FALL/milestones?state=all')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/FEE--2015--SPRING/milestones?state=all')
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/2015--SUMMER--FEE/milestones?state=all')
+      // By our powers combined... REFACTOR!
+      // $http.get('https://api.github.com/repos/TheIronYard--Orlando/'+ $routeParams.cohort + '/milestones?state=all')
+      //   .then(function(response) {
+      //     self.assignments = response.data;
+      //   })
 
-        mile.milestones = []
-        $http.get('/api/github/repos/TIY/summerFee/milestones.json')
-          .then(function(response) {
-            mile.milestones = response.data;
-          })
-      }); // End of MilestonesController
-
-
-
-
-
-    })(window);
+      'https://api.github.com/repos/TheIronYard--Orlando/'+ $routeParams.cohort + '/milestones?state=all'
+      Restangular
+        .one('repos', 'TheIronYard--Orlando')
+        .one($routeParams.cohort)
+      .getList('milestones', { state: 'all' }).then(function(milestones){
+        self.assignments = milestones;
+      });
+    }); // End of MilestonesController
+})(window);
