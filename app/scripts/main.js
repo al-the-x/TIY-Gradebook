@@ -2,7 +2,7 @@
     //with query.load
     // $('main.container').load('views/repositories.html');
 
-    var app = angular.module('tiy-gradebook', []);
+    var app = angular.module('tiy-gradebook', [ 'ngRoute' ]);
 
 
     app.controller('MainController', function() {
