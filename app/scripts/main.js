@@ -88,12 +88,31 @@
       //     self.assignments = response.data;
       //   })
 
-      'https://api.github.com/repos/TheIronYard--Orlando/'+ $routeParams.cohort + '/milestones?state=all'
-      Restangular
+      var repo = Restangular // https://api.github.com/repos/TheIronYard--Orlando/{{$routeParams.cohort}}
         .one('repos', 'TheIronYard--Orlando')
-        .one($routeParams.cohort)
-      .getList('milestones', { state: 'all' }).then(function(milestones){
+        .one($routeParams.cohort);
+
         self.assignments = milestones;
+
+        // What we _want_ `milestones` to look like...
+        // milestones = [
+        //   { number: Number,
+        //     name: String,
+        //     issues: [
+        //       { number: Number,
+        //         url: String,
+        //         title: String,
+        //         description: String (but really long),
+        //         labels: [
+        //           { // 1 label
+        //             // . . .
+        //           }
+        //         ]
+        //       },
+        //       // . . .
+        //     ] // END issues
+        //   } // END 1 milestone
+        // ] // END milestones
       });
     }); // End of MilestonesController
 })(window);
