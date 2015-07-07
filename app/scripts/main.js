@@ -114,6 +114,16 @@
         //     ] // END issues
         //   } // END 1 milestone
         // ] // END milestones
+
+        _.forEach(milestones, function(milestone){
+          repo.getList('issues', {
+            milestone: milestone.number,
+            state: 'all'
+          }).then(function(issues){
+            milestone.issues = issues;
+            // group into labels...
+          });
+        })
       });
 
       repo.getList('labels').then(function(labels){
