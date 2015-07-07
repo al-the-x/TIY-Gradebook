@@ -92,6 +92,7 @@
         .one('repos', 'TheIronYard--Orlando')
         .one($routeParams.cohort);
 
+      repo.getList('milestones', { state: 'all' }).then(function(milestones){
         self.assignments = milestones;
 
         // What we _want_ `milestones` to look like...
@@ -114,5 +115,11 @@
         //   } // END 1 milestone
         // ] // END milestones
       });
+
+      repo.getList('labels').then(function(labels){
+        self.labels = labels;
+      });
+
+
     }); // End of MilestonesController
 })(window);
