@@ -7,6 +7,13 @@ $icon-font-path: '../fonts/';
 @import "milestones";
 @import "repositories";
 
+main {
+  @extend .container-fluid;
+
+  > section.col-3-up {
+    @extend .col-md-4;
+  }
+}
 
 .browserupgrade {
   margin: 0.2em 0;
