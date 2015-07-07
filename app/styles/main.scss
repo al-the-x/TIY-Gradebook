@@ -4,8 +4,8 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-@import "_milestones";
-@import "_repositories";
+@import "milestones";
+@import "repositories";
 
 
 .browserupgrade {
